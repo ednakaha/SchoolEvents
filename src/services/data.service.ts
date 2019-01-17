@@ -8,6 +8,7 @@ export class DataService {
   private eventsArray: EventModel[];
 
   constructor() {
+
     this.eventsArray = [
 
       {
@@ -15,32 +16,40 @@ export class DataService {
         classes: [1, 2, 3],
         name: "Tu B'shvat",
         date: new Date(2018, 0, 21),
-        duration:2.5
+        duration: 2.5
       },
       {
         id: 2,
-        classes: [4,5,6],
+        classes: [4, 5, 6],
         name: "Tu B'shvat - 2",
         date: new Date(2018, 0, 22),
-        duration:4
+        duration: 4
       }
     ]
+    this.set();
   }
 
   get(id?: number): (EventModel[] | EventModel) {
-    if (id) {
-      return this.eventsArray.find(e => e.id === id);
-    } else {
-      return this.eventsArray;
-    }
+    /*   if (id) {
+         return this.eventsArray.find(e => e.id === id);
+       } else {
+         return this.eventsArray;
+       }*/
+    return JSON.parse(localStorage.getItem('events'));
   }
-  set(EventModel){
-      //save to localStorage
-      localStorage.setItem("events", JSON.stringify(this.eventsArray));
+  set(anEvent?: EventModel[] | EventModel) {
+    debugger;
+    //save to localStorage
+    if (anEvent) {
+      localStorage.setItem('events', JSON.stringify(anEvent));
+    } else {
+      localStorage.setItem('events', JSON.stringify(this.eventsArray));
+    }
 
   }
   delete(id: number) {
     const idx = this.eventsArray.findIndex(p => p.id == id);
     this.eventsArray.splice(idx, 1);
-   }
+    this.set();
+  }
 }
