@@ -17,5 +17,8 @@ export class ListComponent implements OnInit {
     this.listEvents = this.dataService.get();
     console.log(this.listEvents);
   }
+  deleteChild(id: number) {
+    this.dataService.delete(id);
+  }
 
 }

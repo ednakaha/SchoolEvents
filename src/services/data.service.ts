@@ -26,6 +26,7 @@ export class DataService {
       }
     ]
   }
+
   get(id?: number): (EventModel[] | EventModel) {
     if (id) {
       return this.eventsArray.find(e => e.id === id);
@@ -38,4 +39,10 @@ export class DataService {
       localStorage.setItem("events", JSON.stringify(this.eventsArray));
 
   }
+  delete(id: number) {
+     
+    debugger;
+    const idx = this.eventsArray.findIndex(p => p.id == id);
+    this.eventsArray.splice(idx, 1);
+   }
 }
