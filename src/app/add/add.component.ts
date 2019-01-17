@@ -9,31 +9,45 @@ import { EventModel } from '../Models/event.model';
 })
 export class AddComponent implements OnInit {
   @Input() singleEvent: EventModel | EventModel[];
-  ev:EventModel;
+  ev: EventModel;
 
-  constructor( private dataService: DataService) {
+  constructor(private dataService: DataService) {
 
   }
 
-  IsFactory(name:string,duration:number,date:Date) {
+  IsFactory(name: string, duration: number, date: Date) {
     return (
-    this.ev.name = name,
-    this.ev.duration = duration,
-    this.ev.date =date
+      this.ev.name = name,
+      this.ev.duration = duration,
+      this.ev.date = date
     )
-   }
+  }
 
-  ngOnInit() {
+ 
+ngOnInit() {
+}
+
+getSelectedClasses(): number[] {
+  let anArr: number[];
+ /* $("input:checkbox[name=class]:checked").each(function () {
+    anArr.push($(this).val());
+
+  });*/
+  return anArr;
+}
+saveEvent(): void {
+  alert('in');
+    this.ev = {
+
+    //   this.ev = new eventmo
+    id: null,
+    name: (<HTMLInputElement>document.getElementById("name")).value,
+    duration: parseFloat((<HTMLInputElement>document.getElementById("duration")).value),
+    date: new Date((<HTMLInputElement>document.getElementById("date")).value),
+    classes: this.getSelectedClasses()
   }
-  saveEvent(): void {
-    debugger;
- //   this.ev = new eventmo
-    this.ev.name =  (<HTMLInputElement>document.getElementById("name")).value; 
-    this.ev.duration =parseFloat((<HTMLInputElement>document.getElementById("duration")).value); 
-    this.ev.date =new Date((<HTMLInputElement>document.getElementById("date")).value);
-debugger;
-  this.dataService.set(this.ev);
-  }
+    this.dataService.set(this.ev);
+}
 
 
 }
