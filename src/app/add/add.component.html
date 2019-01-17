@@ -1,3 +1,24 @@
-<p>
-  add works!
-</p>
+<div class="card" style="width: 25rem;">
+  <div class="card-body">
+     <label> Name:
+    <input id = "name" class="card-title" placeholder="Event name">
+  </label><br>
+  <label>Duration:
+      <input type="number" id="duration" class="card-title" placeholder="Event duration">
+    </label><br>
+    <label>Datetime:
+        <input placeholder="Date" class="textbox-n" type="date" id="date">
+      </label><br>
+   <label> 
+      <input type="checkbox" name="class" value="1"> א <br>
+      <input type="checkbox" name="class" value="2"> ב <br>
+      <input type="checkbox" name="class" value="3"> ג <br>
+      <input type="checkbox" name="class" value="4"> ד <br>
+      <input type="checkbox" name="class" value="5"> ה <br>
+      <input type="checkbox" name="class" value="6"> ו <br>
+      <input type="checkbox" name="class" value="7"> ז <br>
+      <input type="checkbox" name="class" value="8"> ח <br>
+   </label><br>
+   <button (click)='saveEvent()'> Save</button>
+  </div>
+</div>

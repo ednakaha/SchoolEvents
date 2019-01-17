@@ -33,4 +33,9 @@ export class DataService {
       return this.eventsArray;
     }
   }
+  set(EventModel){
+      //save to localStorage
+      localStorage.setItem("events", JSON.stringify(this.eventsArray));
+
+  }
 }
