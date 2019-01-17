@@ -40,8 +40,6 @@ export class DataService {
 
   }
   delete(id: number) {
-     
-    debugger;
     const idx = this.eventsArray.findIndex(p => p.id == id);
     this.eventsArray.splice(idx, 1);
    }
