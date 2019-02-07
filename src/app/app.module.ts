@@ -8,6 +8,10 @@ import { ListComponent } from './list/list.component';
 import { DataService } from '../services/data.service';
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
+import { ManuItemComponent } from './manu-item/manu-item.component';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
+import { EventListComponent } from './event-list/event-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { MenuComponent } from './menu/menu.component';
     AddComponent,
     ListComponent,
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    ManuItemComponent,
+    AboutComponent,
+    HomeComponent,
+    EventListComponent
   ],
   imports: [
     BrowserModule
